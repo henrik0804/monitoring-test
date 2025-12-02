@@ -24,6 +24,7 @@ class ExternalApiCallingAndSometimesFailingCommand extends Command
     {
         $res = Http::withToken(config('services.fun_quote.token'))
             ->get('https://lott-jonn.com/api/fun-quote');
+        Log::info('Res', ['response' => $res]);
 
         if (random_int(1, 2) === 2) {
             throw new Exception('Random failure occurred while fetching fun quote.');
