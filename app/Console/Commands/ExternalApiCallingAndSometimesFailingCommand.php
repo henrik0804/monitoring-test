@@ -29,6 +29,6 @@ class ExternalApiCallingAndSometimesFailingCommand extends Command
             throw new Exception('Random failure occurred while fetching fun quote.');
         }
 
-        Log::info($res->json($res['quote']));
+        Log::info($res->json()['quote']);
     }
 }
