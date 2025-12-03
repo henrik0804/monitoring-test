@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Jobs\ExternalApiCallingAndSometimesFailingJob;
+use App\Jobs\ProxyToCommandJob;
 use Illuminate\Console\Command;
 
 class RunScheduledJobsCommand extends Command
@@ -15,7 +15,7 @@ class RunScheduledJobsCommand extends Command
     {
         if (random_int(1, 2) === 1) {
             $this->info('Simulating exectution of scheduled jobs...');
-            ExternalApiCallingAndSometimesFailingJob::dispatch();
+            ProxyToCommandJob::dispatch();
         } else {
             $this->info('Nothing happening here...');
         }
